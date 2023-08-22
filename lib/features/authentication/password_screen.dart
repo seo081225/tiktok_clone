@@ -52,7 +52,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   }
 
   void _onSubmit() {
-    if (!_isPasswordValid() || _isLettersValid()) return;
+    if (!_isPasswordValid() && _isLettersValid()) return;
     Navigator.push(
       context,
       MaterialPageRoute(
