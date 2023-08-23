@@ -3,11 +3,11 @@ import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/homework_20230823/initial_screen.dart';
 
 void main() {
-  runApp(const TikTokApp());
+  runApp(const TwitterApp());
 }
 
-class TikTokApp extends StatelessWidget {
-  const TikTokApp({super.key});
+class TwitterApp extends StatelessWidget {
+  const TwitterApp({super.key});
 
   @override
   Widget build(BuildContext context) {
