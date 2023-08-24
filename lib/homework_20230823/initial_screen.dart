@@ -50,9 +50,23 @@ class SignUpScreen extends StatelessWidget {
                 text: "Continue with Apple",
               ),
               Gaps.v16,
-              const Text(
-                  '--------------------------------- or ---------------------------------',
-                  style: TextStyle(color: Colors.grey)),
+              Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                    color: Colors.grey.shade300,
+                    height: Sizes.size2,
+                  )),
+                  Gaps.h10,
+                  const Text('or'),
+                  Gaps.h10,
+                  Expanded(
+                      child: Container(
+                    color: Colors.grey.shade300,
+                    height: Sizes.size2,
+                  ))
+                ],
+              ),
               Gaps.v16,
               FractionallySizedBox(
                 widthFactor: 1,
