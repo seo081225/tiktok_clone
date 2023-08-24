@@ -2,24 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
-import 'package:tiktok_clone_2023/features/authentication/login_screen.dart';
-import 'package:tiktok_clone_2023/features/authentication/username_screen.dart';
+import 'package:tiktok_clone_2023/homework_20230823/create_account_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
-  void _onLoginTap(BuildContext context) {
+  void _onSignUpTap(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-    );
-  }
-
-  void _onEmailTap(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const UsernameScreen(),
+        builder: (context) => const CreateAccountScreen(),
       ),
     );
   }
@@ -33,7 +24,6 @@ class SignUpScreen extends StatelessWidget {
             horizontal: Sizes.size40,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Gaps.v60,
               FaIcon(
@@ -50,12 +40,9 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v80,
-              GestureDetector(
-                onTap: () => _onEmailTap(context),
-                child: const AuthButton(
-                  icon: FaIcon(FontAwesomeIcons.google),
-                  text: "Continue with Google",
-                ),
+              const AuthButton(
+                icon: FaIcon(FontAwesomeIcons.google),
+                text: "Continue with Google",
               ),
               Gaps.v16,
               const AuthButton(
@@ -78,16 +65,19 @@ class SignUpScreen extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                   duration: const Duration(milliseconds: 500),
-                  child: const AnimatedDefaultTextStyle(
-                    duration: Duration(milliseconds: 500),
-                    style: TextStyle(
+                  child: AnimatedDefaultTextStyle(
+                    duration: const Duration(milliseconds: 500),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
                       fontSize: Sizes.size16,
                     ),
-                    child: Text(
-                      'Create account',
-                      textAlign: TextAlign.center,
+                    child: GestureDetector(
+                      onTap: () => _onSignUpTap(context),
+                      child: const Text(
+                        'Create account',
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
@@ -170,15 +160,12 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               Gaps.h5,
-              GestureDetector(
-                onTap: () => _onLoginTap(context),
-                child: Text(
-                  'Log in',
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    fontWeight: FontWeight.w500,
-                    color: Theme.of(context).primaryColor,
-                  ),
+              Text(
+                'Log in',
+                style: TextStyle(
+                  fontSize: Sizes.size16,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],
