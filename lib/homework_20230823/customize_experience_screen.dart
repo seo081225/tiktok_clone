@@ -29,10 +29,29 @@ class _CustomizeExperienceScreenState extends State<CustomizeExperienceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: FaIcon(
-          FontAwesomeIcons.twitter,
-          size: Sizes.size32,
-          color: Theme.of(context).primaryColor,
+        automaticallyImplyLeading: false,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: FaIcon(
+                FontAwesomeIcons.twitter,
+                size: Sizes.size32,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            const SizedBox(width: 36),
+          ],
         ),
       ),
       body: Padding(
