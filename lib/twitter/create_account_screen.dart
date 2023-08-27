@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/features/authentication/widgets/form_button.dart';
+import 'package:tiktok_clone_2023/twitter/confirmation_code_screen.dart';
 import 'package:tiktok_clone_2023/twitter/customize_experience_screen.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -99,13 +100,23 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     );
   }
 
-  void _onNextTap() {
+  void _onNextTap() async {
     if (_username.isEmpty) return;
     if (!_isIdValid) return;
 
-    Navigator.of(context).push(
+    final returnData = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const CustomizeExperienceScreen(),
+      ),
+    );
+    buttonName = returnData;
+    setState(() {});
+  }
+
+  void _onSignUpTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ConfirmationCodeScreen(id: _id),
       ),
     );
   }
@@ -230,6 +241,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   controller: _birthdayController,
                   decoration: InputDecoration(
                     hintText: "Date of birth",
+                    hintStyle: const TextStyle(color: Colors.black54),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey.shade400,
@@ -269,16 +281,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
               Gaps.v40,
               GestureDetector(
-                onTap: () async {
-                  final returnData = await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const CustomizeExperienceScreen(),
-                    ),
-                  );
-                  print(returnData);
-                  buttonName = returnData;
-                  setState(() {});
-                },
+                onTap: buttonName == 'Sign up' ? _onSignUpTap : _onNextTap,
                 child: FormButton(
                   disabled: _username.isEmpty || _id.isEmpty,
                   text: buttonName,
