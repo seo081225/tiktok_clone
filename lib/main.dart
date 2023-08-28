@@ -15,7 +15,7 @@ class TikTokApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-/*    return MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
           primaryColor: const Color(0xFFE9435A),
@@ -30,13 +30,6 @@ class TikTokApp extends StatelessWidget {
                 fontWeight: FontWeight.w600),
           )),
       home: const MainNavigationScreen(),
-    );
-  }
-}
-*/
-    return const CupertinoApp(
-      title: 'TikTok Clone',
-      home: MainNavigationScreen(),
     );
   }
 }
