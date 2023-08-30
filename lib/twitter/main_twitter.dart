@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
-import 'package:tiktok_clone_2023/twitter/create_account_screen.dart';
 import 'package:tiktok_clone_2023/twitter/initial_screen.dart';
-import 'package:tiktok_clone_2023/twitter/interests_screen.dart';
-import 'package:tiktok_clone_2023/twitter/password_screen.dart';
 
 void main() {
   runApp(const TwitterApp());
