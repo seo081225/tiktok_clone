@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
-import 'package:tiktok_clone_2023/features/authentication/login_screen.dart';
-import 'package:tiktok_clone_2023/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone_2023/features/main_navigation/main_navigation_screen.dart';
-import 'package:tiktok_clone_2023/features/onboarding/interests_screen.dart';
 
 void main() {
   runApp(const TikTokApp());
