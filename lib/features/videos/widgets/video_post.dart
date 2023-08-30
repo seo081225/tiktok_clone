@@ -97,6 +97,7 @@ class _VideoPostState extends State<VideoPost>
     }
     await showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => const VideoComments(),
     );
@@ -153,7 +154,7 @@ class _VideoPostState extends State<VideoPost>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "@쇼",
+                  "@시오",
                   style: TextStyle(
                     fontSize: Sizes.size20,
                     color: Colors.white,
