@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/threads/home_screen.dart';
 import 'package:tiktok_clone_2023/threads/nav_tab.dart';
+import 'package:tiktok_clone_2023/threads/post_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -51,10 +52,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           Offstage(
             offstage: _selectedIndex != 2,
             child: const Center(
-              child: Text(
-                "Write",
-                style: TextStyle(fontSize: 48),
-              ),
+              child: PostScreen(),
             ),
           ),
           Offstage(

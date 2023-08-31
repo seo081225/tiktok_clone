@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 
-class HomePage extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   final List<Post> posts = [
     Post(
       type: PostType.text,
@@ -53,7 +53,251 @@ class HomePage extends StatelessWidget {
     ),
   ];
 
-  HomePage({super.key});
+  HomeScreen({super.key});
+
+  void _onEllipsisTap(BuildContext context) async {
+    final size = MediaQuery.of(context).size;
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: size.height * 0.35,
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(Sizes.size14),
+        ),
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            actions: [
+              IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const FaIcon(FontAwesomeIcons.xmark),
+              ),
+            ],
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: Colors.grey.shade200,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            "Unfollow",
+                            style: TextStyle(
+                              fontSize: Sizes.size20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: Colors.grey.shade200,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            "Mute",
+                            style: TextStyle(
+                              fontSize: Sizes.size20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Gaps.v20,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: Colors.grey.shade200,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            "Hide",
+                            style: TextStyle(
+                              fontSize: Sizes.size20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => _onReportTap(context),
+                        child: Container(
+                          color: Colors.grey.shade200,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Text(
+                              "Report",
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: Sizes.size20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _onReportTap(BuildContext context) async {
+    final size = MediaQuery.of(context).size;
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: size.height * 0.5,
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(Sizes.size14),
+        ),
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: const Text(
+              "Report",
+              style: TextStyle(
+                  fontSize: Sizes.size20, fontWeight: FontWeight.bold),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const FaIcon(FontAwesomeIcons.xmark),
+              ),
+            ],
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Why are you reporting this thread?",
+                  style: TextStyle(
+                      fontSize: Sizes.size20, fontWeight: FontWeight.bold),
+                ),
+                Gaps.v10,
+                Text(
+                  "Your report is anonymous, except if you're reporting an intellectual property infringement. If someone is in immediate danger, call the local emergency services - don't wait.",
+                  style: TextStyle(
+                    fontSize: Sizes.size16,
+                    color: Colors.grey.shade400,
+                  ),
+                ),
+                Gaps.v20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "I just don't like it",
+                      style: TextStyle(fontSize: Sizes.size20),
+                    ),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      color: Colors.grey.shade500,
+                      size: Sizes.size16,
+                    )
+                  ],
+                ),
+                Gaps.v20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "It's unlawful content under NetzDG",
+                      style: TextStyle(fontSize: Sizes.size20),
+                    ),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      color: Colors.grey.shade500,
+                      size: Sizes.size16,
+                    )
+                  ],
+                ),
+                Gaps.v20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "It's spam",
+                      style: TextStyle(fontSize: Sizes.size20),
+                    ),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      color: Colors.grey.shade500,
+                      size: Sizes.size16,
+                    )
+                  ],
+                ),
+                Gaps.v20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Hate speech or symbols",
+                      style: TextStyle(fontSize: Sizes.size20),
+                    ),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      color: Colors.grey.shade500,
+                      size: Sizes.size16,
+                    )
+                  ],
+                ),
+                Gaps.v20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Nudity or sexual activity",
+                      style: TextStyle(fontSize: Sizes.size20),
+                    ),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      color: Colors.grey.shade500,
+                      size: Sizes.size16,
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,17 +343,20 @@ class HomePage extends StatelessWidget {
                                       fontSize: Sizes.size20,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
                                   child: Row(
                                     children: [
-                                      Text('2m',
+                                      const Text('2m',
                                           style: TextStyle(
                                               color: Colors.grey,
                                               fontSize: Sizes.size16)),
                                       Gaps.h10,
-                                      FaIcon(
-                                        FontAwesomeIcons.ellipsis,
+                                      GestureDetector(
+                                        onTap: () => _onEllipsisTap(context),
+                                        child: const FaIcon(
+                                          FontAwesomeIcons.ellipsis,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -178,17 +425,20 @@ class HomePage extends StatelessWidget {
                                       fontSize: Sizes.size20,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
                                   child: Row(
                                     children: [
-                                      Text('5m',
+                                      const Text('5m',
                                           style: TextStyle(
                                               color: Colors.grey,
                                               fontSize: Sizes.size16)),
                                       Gaps.h10,
-                                      FaIcon(
-                                        FontAwesomeIcons.ellipsis,
+                                      GestureDetector(
+                                        onTap: () => _onEllipsisTap(context),
+                                        child: const FaIcon(
+                                          FontAwesomeIcons.ellipsis,
+                                        ),
                                       ),
                                     ],
                                   ),
