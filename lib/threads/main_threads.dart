@@ -14,17 +14,18 @@ class TikTokApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter 20230829',
       theme: ThemeData(
-          primaryColor: const Color(0xFFE9435A),
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-            foregroundColor: Colors.black,
-            backgroundColor: Colors.white,
-            elevation: 0,
-            titleTextStyle: TextStyle(
-                color: Colors.black,
-                fontSize: Sizes.size16 + Sizes.size2,
-                fontWeight: FontWeight.w600),
-          )),
+        primaryColor: const Color(0xFFE9435A),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          titleTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: Sizes.size16 + Sizes.size2,
+              fontWeight: FontWeight.w600),
+        ),
+      ),
       home: const MainNavigationScreen(),
     );
   }

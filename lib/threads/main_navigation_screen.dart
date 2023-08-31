@@ -37,7 +37,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: HomePage(),
+            child: HomeScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 1,
