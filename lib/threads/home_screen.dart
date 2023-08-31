@@ -313,21 +313,13 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.amber.shade200,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Center(
-                          child: Text(post.nickname.substring(0, 1),
-                              style: const TextStyle(
-                                  height: 1,
-                                  fontSize: Sizes.size32,
-                                  fontWeight: FontWeight.w600)),
-                        ),
+                      CircleAvatar(
+                        radius: 25,
+                        child: Text(post.nickname.substring(0, 1),
+                            style: const TextStyle(
+                                height: 1,
+                                fontSize: Sizes.size32,
+                                fontWeight: FontWeight.w600)),
                       ),
                       Gaps.h10,
                       Expanded(
@@ -395,21 +387,15 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.indigo.shade200,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Center(
-                          child: Text(post.nickname.substring(0, 1),
-                              style: const TextStyle(
-                                  height: 1,
-                                  fontSize: Sizes.size32,
-                                  fontWeight: FontWeight.w600)),
-                        ),
+                      CircleAvatar(
+                        backgroundColor: Colors.amber.shade400,
+                        foregroundColor: Colors.black,
+                        radius: 25,
+                        child: Text(post.nickname.substring(0, 1),
+                            style: const TextStyle(
+                                height: 1,
+                                fontSize: Sizes.size32,
+                                fontWeight: FontWeight.w600)),
                       ),
                       Gaps.h10,
                       Expanded(
