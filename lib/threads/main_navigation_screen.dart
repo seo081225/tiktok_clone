@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
+import 'package:tiktok_clone_2023/threads/activity_screen.dart';
 import 'package:tiktok_clone_2023/threads/home_screen.dart';
 import 'package:tiktok_clone_2023/threads/nav_tab.dart';
 import 'package:tiktok_clone_2023/threads/post_screen.dart';
+import 'package:tiktok_clone_2023/threads/search_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -24,16 +26,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Padding(
-          padding: EdgeInsets.only(top: Sizes.size20),
-          child: FaIcon(
-            FontAwesomeIcons.at,
-            size: Sizes.size40,
-          ),
-        ),
-      ),
       body: Stack(
         children: [
           Offstage(
@@ -42,12 +34,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 1,
-            child: const Center(
-              child: Text(
-                "Discover",
-                style: TextStyle(fontSize: 48),
-              ),
-            ),
+            child: const SearchScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,
@@ -57,12 +44,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 3,
-            child: const Center(
-              child: Text(
-                "Like",
-                style: TextStyle(fontSize: 48),
-              ),
-            ),
+            child: const ActivityScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 4,

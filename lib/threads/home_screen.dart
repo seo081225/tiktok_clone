@@ -302,6 +302,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Padding(
+          padding: EdgeInsets.only(top: Sizes.size20),
+          child: FaIcon(
+            FontAwesomeIcons.at,
+            size: Sizes.size40,
+          ),
+        ),
+      ),
       body: ListView.builder(
         itemCount: posts.length,
         itemBuilder: (context, index) {
