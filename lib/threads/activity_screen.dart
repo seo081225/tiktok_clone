@@ -186,14 +186,14 @@ class _ActivityScreenState extends State<ActivityScreen>
                 profileColor: Colors.blue,
               ),
               const Divider(height: 20, indent: Sizes.size60),
-              member2(
+              member3(
                 name: 'the.gardening',
                 event: 'Definitely broken! 🌱🌷🌼',
                 time: '5h',
                 profileColor: Colors.green,
               ),
               const Divider(height: 20, indent: Sizes.size60),
-              member2(
+              member3(
                 name: 'the.gardening',
                 event: '🌱🌷🌼',
                 time: '5h',
@@ -391,6 +391,83 @@ class _memberState2 extends State<member2> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class member3 extends StatefulWidget {
+  member3({
+    super.key,
+    required this.name,
+    required this.event,
+    required this.time,
+    required this.profileColor,
+  });
+
+  String name, event, time;
+  Color profileColor;
+
+  @override
+  State<member3> createState() => _memberState3();
+}
+
+class _memberState3 extends State<member3> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: ListTile(
+        leading: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: Sizes.size44,
+              height: Sizes.size44,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: widget.profileColor,
+              ),
+              child: const Center(
+                child: FaIcon(
+                  FontAwesomeIcons.user,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        title: Row(
+          children: [
+            Text(
+              widget.name,
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: Sizes.size18,
+              ),
+            ),
+            Gaps.h10,
+            Text(
+              widget.time,
+              style: TextStyle(
+                color: Colors.grey.shade400,
+                fontSize: Sizes.size16,
+              ),
+            ),
+          ],
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Gaps.v7,
+            Text(
+              widget.event,
+              style: const TextStyle(
+                fontSize: Sizes.size16,
+              ),
+            ),
+          ],
         ),
       ),
     );
