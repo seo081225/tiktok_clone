@@ -156,7 +156,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
             onTap: _onNextTap,
             child: Container(
               padding: const EdgeInsets.symmetric(
-                vertical: Sizes.size16 + Sizes.size2,
+                vertical: Sizes.size18,
               ),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
