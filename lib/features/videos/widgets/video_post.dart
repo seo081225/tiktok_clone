@@ -186,7 +186,7 @@ class _VideoPostState extends State<VideoPost>
                   radius: 25,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
-                  backgroundImage: AssetImage("assets/images/profile.PNG"),
+                  backgroundImage: AssetImage("assets/images/profile.jpg"),
                 ),
                 Gaps.v24,
                 const VideoButton(

@@ -96,7 +96,7 @@ class _PostScreenState extends State<PostScreen> {
                           backgroundColor: Colors.black,
                           foregroundColor: Colors.white,
                           backgroundImage:
-                              AssetImage("assets/images/profile.PNG"),
+                              AssetImage("assets/images/profile.jpg"),
                         ),
                         Container(
                           height: 10,

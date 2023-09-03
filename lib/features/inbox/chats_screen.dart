@@ -58,7 +58,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
       onTap: _onChatTap,
       leading: const CircleAvatar(
         radius: 30,
-        backgroundImage: AssetImage("assets/images/profile.PNG"),
+        backgroundImage: AssetImage("assets/images/profile.jpg"),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

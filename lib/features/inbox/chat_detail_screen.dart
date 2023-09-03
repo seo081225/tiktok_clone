@@ -22,7 +22,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
           horizontalTitleGap: Sizes.size8,
           leading: CircleAvatar(
             radius: Sizes.size24,
-            backgroundImage: AssetImage("assets/images/profile.PNG"),
+            backgroundImage: AssetImage("assets/images/profile.jpg"),
           ),
           title: Text(
             '쇼',

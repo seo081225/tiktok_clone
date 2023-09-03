@@ -124,7 +124,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         const CircleAvatar(
                           radius: 12,
                           backgroundImage:
-                              AssetImage("assets/images/profile.PNG"),
+                              AssetImage("assets/images/profile.jpg"),
                         ),
                         Gaps.h4,
                         const Expanded(
