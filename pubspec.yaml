@@ -65,8 +65,7 @@ flutter:
 
   assets:
     - assets/videos/video.mp4
-    - assets/images/profile.jpg
-    - assets/images/placeholder.jpg
+    - assets/images/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

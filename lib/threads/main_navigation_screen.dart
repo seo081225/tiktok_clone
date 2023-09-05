@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
+import 'package:tiktok_clone_2023/threads/user_profile_screen.dart';
 import 'package:tiktok_clone_2023/threads/activity_screen.dart';
 import 'package:tiktok_clone_2023/threads/home_screen.dart';
 import 'package:tiktok_clone_2023/threads/nav_tab.dart';
@@ -48,12 +49,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 4,
-            child: const Center(
-              child: Text(
-                "Profile",
-                style: TextStyle(fontSize: 48),
-              ),
-            ),
+            child: const UserProfileScreen(),
           ),
         ],
       ),
