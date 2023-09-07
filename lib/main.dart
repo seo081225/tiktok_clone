@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
-import 'package:tiktok_clone_2023/features/authentication/sign_up_screen.dart';
-import 'package:tiktok_clone_2023/features/inbox/activity_screen.dart';
 import 'package:tiktok_clone_2023/features/main_navigation/main_navigation_screen.dart';
 
 void main() async {
@@ -54,9 +51,14 @@ class TikTokApp extends StatelessWidget {
           unselectedLabelColor: Colors.grey.shade500,
           indicatorColor: Colors.black,
         ),
+        listTileTheme: const ListTileThemeData(
+          iconColor: Colors.black,
+        ),
       ),
       darkTheme: ThemeData(
-        tabBarTheme: const TabBarTheme(indicatorColor: Colors.white),
+        tabBarTheme: const TabBarTheme(
+          indicatorColor: Colors.white,
+        ),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Color(0xFFE9435A),
         ),
