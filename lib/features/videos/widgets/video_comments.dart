@@ -58,159 +58,160 @@ class _VideoCommentsState extends State<VideoComments> {
         ),
         body: GestureDetector(
           onTap: _stopWriting,
-          child: Stack(
-            children: [
-              Scrollbar(
+          child: Stack(children: [
+            Scrollbar(
+              controller: _scrollController,
+              child: ListView.separated(
                 controller: _scrollController,
-                child: ListView.separated(
-                  controller: _scrollController,
+                padding: const EdgeInsets.only(
+                  top: Sizes.size10,
+                  bottom: Sizes.size96 + Sizes.size20,
+                  left: Sizes.size16,
+                  right: Sizes.size16,
+                ),
+                separatorBuilder: (context, index) => Gaps.v20,
+                itemCount: 10,
+                itemBuilder: (context, index) => Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 18,
+                      backgroundColor: isDark ? Colors.grey.shade500 : null,
+                      child: const Text("시오"),
+                    ),
+                    Gaps.h10,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '시오',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: Sizes.size14,
+                                color: Colors.grey.shade500),
+                          ),
+                          Gaps.v3,
+                          const Text(
+                              "That's not it l've seen the same thing but also in a cave,")
+                        ],
+                      ),
+                    ),
+                    Gaps.h10,
+                    Column(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.heart,
+                          size: Sizes.size20,
+                          color: Colors.grey.shade500,
+                        ),
+                        Gaps.v2,
+                        Text(
+                          '52.2K',
+                          style: TextStyle(
+                            color: Colors.grey.shade500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              width: size.width,
+              child: Container(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
                   padding: const EdgeInsets.only(
-                    top: Sizes.size10,
-                    bottom: Sizes.size96 + Sizes.size20,
                     left: Sizes.size16,
                     right: Sizes.size16,
+                    top: Sizes.size10,
+                    bottom: Sizes.size48,
                   ),
-                  separatorBuilder: (context, index) => Gaps.v20,
-                  itemCount: 10,
-                  itemBuilder: (context, index) => Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
                     children: [
                       CircleAvatar(
                         radius: 18,
-                        backgroundColor: isDark ? Colors.grey.shade500 : null,
+                        backgroundColor: Colors.grey.shade500,
+                        foregroundColor: Colors.white,
                         child: const Text("시오"),
                       ),
                       Gaps.h10,
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '시오',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Sizes.size14,
-                                  color: Colors.grey.shade500),
-                            ),
-                            Gaps.v3,
-                            const Text(
-                                "That's not it l've seen the same thing but also in a cave,")
-                          ],
+                        child: SizedBox(
+                          height: Sizes.size44,
+                          child: TextField(
+                            onTap: _onStartWriting,
+                            expands: true,
+                            minLines: null,
+                            maxLines: null,
+                            textInputAction: TextInputAction.newline,
+                            cursorColor: Theme.of(context).primaryColor,
+                            decoration: InputDecoration(
+                                hintText: "Add comment...",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(
+                                    Sizes.size12,
+                                  ),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: isDark
+                                    ? Colors.grey.shade800
+                                    : Colors.grey.shade200,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: Sizes.size12,
+                                ),
+                                suffixIcon: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: Sizes.size14),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.at,
+                                        color: isDark
+                                            ? Colors.grey.shade500
+                                            : Colors.grey.shade900,
+                                      ),
+                                      Gaps.h14,
+                                      FaIcon(
+                                        FontAwesomeIcons.gift,
+                                        color: isDark
+                                            ? Colors.grey.shade500
+                                            : Colors.grey.shade900,
+                                      ),
+                                      Gaps.h14,
+                                      FaIcon(
+                                        FontAwesomeIcons.faceSmile,
+                                        color: isDark
+                                            ? Colors.grey.shade500
+                                            : Colors.grey.shade900,
+                                      ),
+                                      Gaps.h14,
+                                      if (_isWriting)
+                                        GestureDetector(
+                                          onTap: _stopWriting,
+                                          child: FaIcon(
+                                            FontAwesomeIcons.circleArrowUp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                )),
+                          ),
                         ),
-                      ),
-                      Gaps.h10,
-                      Column(
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.heart,
-                            size: Sizes.size20,
-                            color: Colors.grey.shade500,
-                          ),
-                          Gaps.v2,
-                          Text(
-                            '52.2K',
-                            style: TextStyle(
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ],
-                      ),
+                      )
                     ],
                   ),
                 ),
               ),
-              Positioned(
-                bottom: 0,
-                width: size.width,
-                child: BottomAppBar(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.size16,
-                      vertical: Sizes.size10,
-                    ),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 18,
-                          backgroundColor: Colors.grey.shade500,
-                          foregroundColor: Colors.white,
-                          child: const Text("시오"),
-                        ),
-                        Gaps.h10,
-                        Expanded(
-                          child: SizedBox(
-                            height: Sizes.size44,
-                            child: TextField(
-                              onTap: _onStartWriting,
-                              expands: true,
-                              minLines: null,
-                              maxLines: null,
-                              textInputAction: TextInputAction.newline,
-                              cursorColor: Theme.of(context).primaryColor,
-                              decoration: InputDecoration(
-                                  hintText: "Add comment...",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      Sizes.size12,
-                                    ),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  filled: true,
-                                  fillColor: isDark
-                                      ? Colors.grey.shade800
-                                      : Colors.grey.shade200,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: Sizes.size12,
-                                  ),
-                                  suffixIcon: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: Sizes.size14),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.at,
-                                          color: isDark
-                                              ? Colors.grey.shade500
-                                              : Colors.grey.shade900,
-                                        ),
-                                        Gaps.h14,
-                                        FaIcon(
-                                          FontAwesomeIcons.gift,
-                                          color: isDark
-                                              ? Colors.grey.shade500
-                                              : Colors.grey.shade900,
-                                        ),
-                                        Gaps.h14,
-                                        FaIcon(
-                                          FontAwesomeIcons.faceSmile,
-                                          color: isDark
-                                              ? Colors.grey.shade500
-                                              : Colors.grey.shade900,
-                                        ),
-                                        Gaps.h14,
-                                        if (_isWriting)
-                                          GestureDetector(
-                                            onTap: _stopWriting,
-                                            child: FaIcon(
-                                              FontAwesomeIcons.circleArrowUp,
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
