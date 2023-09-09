@@ -25,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     print(Localizations.localeOf(context));
     return Localizations.override(
       context: context,
-      locale: const Locale("es"),
+      locale: const Locale("en"),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Settings'),
