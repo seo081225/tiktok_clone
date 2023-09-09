@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone_2023/features/settings/settings_screen.dart';
+import 'package:flutter_gen/gen_l10n/intl_generated.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +31,7 @@ class TikTokApp extends StatelessWidget {
       title: 'TikTok Clone',
       themeMode: ThemeMode.system,
       localizationsDelegates: const [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -103,7 +105,7 @@ class TikTokApp extends StatelessWidget {
         ),
         primaryColor: const Color(0xFFE9435A),
       ),
-      home: const SettingsScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
