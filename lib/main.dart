@@ -30,17 +30,8 @@ class TikTokApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
       themeMode: ThemeMode.system,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale("en"),
-        Locale("ko"),
-        Locale("es"),
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
         textTheme: Typography.blackMountainView,
