@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/threads/settings_screen.dart';
+import 'package:tiktok_clone_2023/utils.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -173,7 +174,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                     child: const Text(
                                       "threads.net",
                                       style: TextStyle(
-                                        color: Colors.black45,
                                         fontSize: Sizes.size16,
                                       ),
                                     ),
@@ -242,7 +242,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             child: const Text(
                               'Edit profile',
                               style: TextStyle(
-                                color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
                               textAlign: TextAlign.center,
@@ -252,7 +251,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Container(
                             padding: const EdgeInsets.symmetric(
                               vertical: Sizes.size10,
-                              horizontal: Sizes.size48,
+                              horizontal: Sizes.size44,
                             ),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
@@ -263,7 +262,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             child: const Text(
                               'Share profile',
                               style: TextStyle(
-                                color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
                               textAlign: TextAlign.center,
@@ -627,7 +625,6 @@ class PersistentTabBar extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
         border: Border(
           bottom: BorderSide(
             color: Colors.grey.shade200,
@@ -635,14 +632,14 @@ class PersistentTabBar extends SliverPersistentHeaderDelegate {
           ),
         ),
       ),
-      child: const TabBar(
+      child: TabBar(
         indicatorSize: TabBarIndicatorSize.tab,
-        indicatorColor: Colors.black,
-        labelPadding: EdgeInsets.symmetric(
+        indicatorColor: isDarkMode(context) ? Colors.white : Colors.black,
+        labelPadding: const EdgeInsets.symmetric(
           vertical: Sizes.size10,
         ),
-        labelColor: Colors.black,
-        tabs: [
+        labelColor: isDarkMode(context) ? Colors.white : Colors.black,
+        tabs: const [
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: Sizes.size20,

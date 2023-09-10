@@ -16,27 +16,30 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        toolbarHeight: Sizes.size96,
         title: const Padding(
-          padding: EdgeInsets.all(10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+          padding: EdgeInsets.only(top: Sizes.size10),
+          child: Column(
             children: [
-              Text(
-                "Search",
-                style: TextStyle(
-                    fontSize: Sizes.size32, fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Search",
+                    style: TextStyle(
+                      fontSize: Sizes.size32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
+              CupertinoSearchTextField(),
             ],
           ),
         ),
       ),
       body: ListView(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: CupertinoSearchTextField(),
-          ),
           Gaps.v10,
           member(
             name: 'bee',
@@ -154,10 +157,6 @@ class _memberState extends State<member> {
             Gaps.v7,
             Text(
               '${widget.follower} followers',
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: Sizes.size14,
-              ),
             ),
           ],
         ),

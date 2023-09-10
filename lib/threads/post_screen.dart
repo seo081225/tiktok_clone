@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
+import 'package:tiktok_clone_2023/utils.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -35,11 +36,13 @@ class _PostScreenState extends State<PostScreen> {
         toolbarHeight: 80,
         leading: Container(),
         flexibleSpace: Padding(
-            padding: const EdgeInsets.only(top: 29),
+            padding: const EdgeInsets.only(top: 88),
             child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    color: isDarkMode(context)
+                        ? Colors.grey.shade900
+                        : Colors.white,
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15))),
                 height: 50,
@@ -56,7 +59,6 @@ class _PostScreenState extends State<PostScreen> {
                                 onTap: () => {},
                                 child: const Text("Cancel",
                                     style: TextStyle(
-                                        color: Colors.black,
                                         fontSize: Sizes.size16,
                                         fontWeight: FontWeight.w400)))),
                         Container(
@@ -65,7 +67,6 @@ class _PostScreenState extends State<PostScreen> {
                         const Text(
                           "   New threads",
                           style: TextStyle(
-                              color: Colors.black,
                               fontSize: Sizes.size20,
                               fontWeight: FontWeight.w700),
                         ),
@@ -79,7 +80,7 @@ class _PostScreenState extends State<PostScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.white,
+          color: isDarkMode(context) ? Colors.grey.shade900 : Colors.white,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -128,7 +129,6 @@ class _PostScreenState extends State<PostScreen> {
                         const Text(
                           'Seo',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 29, 29, 29),
                               fontSize: Sizes.size20,
                               fontWeight: FontWeight.w600),
                         ),

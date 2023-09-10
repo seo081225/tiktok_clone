@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
+import 'package:tiktok_clone_2023/utils.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -72,13 +73,17 @@ class _ActivityScreenState extends State<ActivityScreen>
         ),
         bottom: TabBar(
           isScrollable: true,
-          indicatorColor: Colors.transparent,
-          unselectedLabelColor: Colors.black,
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          indicatorColor: isDarkMode(context) ? Colors.white : Colors.black,
+          unselectedLabelColor:
+              isDarkMode(context) ? Colors.white : Colors.black,
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
           labelPadding: const EdgeInsets.symmetric(horizontal: 5),
           indicatorSize: TabBarIndicatorSize.label,
           indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.black),
+            borderRadius: BorderRadius.circular(10),
+            color: isDarkMode(context) ? Colors.white : Colors.black,
+          ),
+          labelColor: isDarkMode(context) ? Colors.black : Colors.white,
           controller: _tabController,
           tabs: <Widget>[
             Tab(
@@ -86,7 +91,10 @@ class _ActivityScreenState extends State<ActivityScreen>
                 width: 110,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black, width: 1)),
+                    border: Border.all(
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
+                        width: 1)),
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -104,7 +112,10 @@ class _ActivityScreenState extends State<ActivityScreen>
                 width: 110,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black, width: 1)),
+                    border: Border.all(
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
+                        width: 1)),
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -122,7 +133,10 @@ class _ActivityScreenState extends State<ActivityScreen>
                 width: 110,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black, width: 1)),
+                    border: Border.all(
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
+                        width: 1)),
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -140,7 +154,10 @@ class _ActivityScreenState extends State<ActivityScreen>
                 width: 110,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black, width: 1)),
+                    border: Border.all(
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
+                        width: 1)),
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -250,10 +267,11 @@ class _memberState extends State<member> {
                 shape: BoxShape.circle,
                 color: widget.profileColor,
               ),
-              child: const Center(
+              child: Center(
                 child: FaIcon(
                   FontAwesomeIcons.user,
-                  color: Colors.white,
+                  color:
+                      isDarkMode(context) ? Colors.grey.shade800 : Colors.white,
                 ),
               ),
             ),
@@ -291,7 +309,6 @@ class _memberState extends State<member> {
             Text(
               widget.content,
               style: const TextStyle(
-                color: Colors.black,
                 fontSize: Sizes.size16,
               ),
             ),
@@ -335,10 +352,11 @@ class _memberState2 extends State<member2> {
                 shape: BoxShape.circle,
                 color: widget.profileColor,
               ),
-              child: const Center(
+              child: Center(
                 child: FaIcon(
                   FontAwesomeIcons.user,
-                  color: Colors.white,
+                  color:
+                      isDarkMode(context) ? Colors.grey.shade800 : Colors.white,
                 ),
               ),
             ),
@@ -429,10 +447,11 @@ class _memberState3 extends State<member3> {
                 shape: BoxShape.circle,
                 color: widget.profileColor,
               ),
-              child: const Center(
+              child: Center(
                 child: FaIcon(
                   FontAwesomeIcons.user,
-                  color: Colors.white,
+                  color:
+                      isDarkMode(context) ? Colors.grey.shade800 : Colors.white,
                 ),
               ),
             ),
