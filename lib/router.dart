@@ -4,9 +4,14 @@ import 'package:tiktok_clone_2023/features/authentication/login_screen.dart';
 import 'package:tiktok_clone_2023/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone_2023/features/authentication/username_screen.dart';
 import 'package:tiktok_clone_2023/features/users/user_profile_screen.dart';
+import 'package:tiktok_clone_2023/features/videos/video_recording_screen.dart';
 
 final router = GoRouter(
   routes: [
+    GoRoute(
+      path: "/",
+      builder: (context, state) => const VideoRecordingScreen(),
+    ),
     GoRoute(
       name: SignUpScreen.routeName,
       path: SignUpScreen.routeURL,

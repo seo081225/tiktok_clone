@@ -10,8 +10,8 @@ import 'package:tiktok_clone_2023/generated/l10n.dart';
 import 'package:tiktok_clone_2023/utils.dart';
 
 class SignUpScreen extends StatelessWidget {
-  static const routeURL = "/";
-  static const routeName = "signUp";
+  static const routeURL = "signUp";
+  static const routeName = "/signUp";
 
   const SignUpScreen({super.key});
 
