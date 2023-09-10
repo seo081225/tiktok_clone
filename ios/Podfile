@@ -29,7 +29,6 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 flutter_ios_podfile_setup
 
 
-
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
@@ -76,8 +75,8 @@ post_install do |installer|
         # 'PERMISSION_SPEECH_RECOGNIZER=1',
 
         ## dart: PermissionGroup.photos
-        # 'PERMISSION_PHOTOS=1',
-
+        'PERMISSION_PHOTOS=1',
+        
         ## dart: [PermissionGroup.location, PermissionGroup.locationAlways, PermissionGroup.locationWhenInUse]
         # 'PERMISSION_LOCATION=1',
 
