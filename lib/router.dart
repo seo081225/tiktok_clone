@@ -11,29 +11,29 @@ final router = GoRouter(
     GoRoute(
       path: "/",
       builder: (context, state) => const VideoRecordingScreen(),
-    ),
-    GoRoute(
-      name: SignUpScreen.routeName,
-      path: SignUpScreen.routeURL,
-      builder: (context, state) => const SignUpScreen(),
-      routes: [
-        GoRoute(
-          path: UsernameScreen.routeURL,
-          name: UsernameScreen.routeName,
-          builder: (context, state) => const UsernameScreen(),
-          routes: [
-            GoRoute(
-              name: EmailScreen.routeName,
-              path: EmailScreen.routeURL,
-              builder: (context, state) {
-                final args = state.extra as EmailScreenArgs;
-                return EmailScreen(username: args.username);
-              },
-            ),
-          ],
-        ),
-      ],
-    ),
+    )
+    // GoRoute(
+    //   name: SignUpScreen.routeName,
+    //   path: SignUpScreen.routeURL,
+    //   builder: (context, state) => const SignUpScreen(),
+    //   routes: [
+    //     GoRoute(
+    //       path: UsernameScreen.routeURL,
+    //       name: UsernameScreen.routeName,
+    //       builder: (context, state) => const UsernameScreen(),
+    //       routes: [
+    //         GoRoute(
+    //           name: EmailScreen.routeName,
+    //           path: EmailScreen.routeURL,
+    //           builder: (context, state) {
+    //             final args = state.extra as EmailScreenArgs;
+    //             return EmailScreen(username: args.username);
+    //           },
+    //         ),
+    //       ],
+    //     ),
+    //   ],
+    // ),
     // GoRoute(
     //   path: LoginScreen.routeName,
     //   builder: (context, state) => const LoginScreen(),
@@ -49,13 +49,13 @@ final router = GoRouter(
     //     return EmailScreen(username: args.username);
     //   },
     // ),
-    GoRoute(
-      path: "/users/:username",
-      builder: (context, state) {
-        final username = state.params['username'];
-        final tab = state.queryParams["show"];
-        return UserProfileScreen(username: username!, tab: tab!);
-      },
-    )
+    // GoRoute(
+    //   path: "/users/:username",
+    //   builder: (context, state) {
+    //     final username = state.params['username'];
+    //     final tab = state.queryParams["show"];
+    //     return UserProfileScreen(username: username!, tab: tab!);
+    //   },
+    // )
   ],
 );
