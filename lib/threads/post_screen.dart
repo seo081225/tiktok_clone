@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
+import 'package:tiktok_clone_2023/features/videos/video_recording_screen.dart';
 import 'package:tiktok_clone_2023/utils.dart';
 
 class PostScreen extends StatefulWidget {
@@ -26,6 +28,15 @@ class _PostScreenState extends State<PostScreen> {
     scrollcontroller = ScrollController();
     _textEditingController = TextEditingController();
     super.initState();
+  }
+
+  void _onNextTap() {
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(
+        builder: (context) => const VideoRecordingScreen(),
+      ),
+      (route) => false,
+    );
   }
 
   @override
@@ -135,41 +146,62 @@ class _PostScreenState extends State<PostScreen> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width - 100,
                           height: MediaQuery.of(context).size.height / 3,
-                          child: TextField(
-                            maxLength: 500,
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 29, 29, 29),
-                            ),
-                            controller: _textEditingController,
-                            onChanged: (texts) {
-                              setState(() {});
-                            },
-                            maxLines: null,
-                            decoration: const InputDecoration(
-                                suffix: SizedBox(
-                                  height: 70,
-                                  width: 50,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Text(
-                                        "Post",
-                                        style: TextStyle(
-                                            color: Colors.blue,
-                                            fontWeight: FontWeight.w600),
-                                      )
-                                    ],
-                                  ),
+                          child: Column(
+                            children: [
+                              TextField(
+                                maxLength: 500,
+                                style: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.grey.shade400
+                                      : Colors.grey.shade900,
                                 ),
-                                border: InputBorder.none,
-                                hintText: "Start a threads..",
-                                hintStyle: TextStyle(
-                                    fontSize: 15,
-                                    color: Color.fromARGB(255, 112, 112, 112),
-                                    overflow: TextOverflow.ellipsis)),
+                                controller: _textEditingController,
+                                onChanged: (texts) {
+                                  setState(() {});
+                                },
+                                maxLines: null,
+                                decoration: const InputDecoration(
+                                    suffix: SizedBox(
+                                      height: 70,
+                                      width: 50,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 4,
+                                          ),
+                                          Text(
+                                            "Post",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontWeight: FontWeight.w600),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                    hintText: "Start a threads..",
+                                    hintStyle: TextStyle(
+                                        fontSize: 15,
+                                        color:
+                                            Color.fromARGB(255, 112, 112, 112),
+                                        overflow: TextOverflow.ellipsis)),
+                              ),
+                              Gaps.h16,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  GestureDetector(
+                                    onTap: _onNextTap,
+                                    child: FaIcon(
+                                      FontAwesomeIcons.paperclip,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ],
