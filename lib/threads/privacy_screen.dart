@@ -5,6 +5,9 @@ import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 
 class PrivacyScreen extends StatefulWidget {
+  static const routeURL = "privacy";
+  static const routeName = "privacy";
+
   const PrivacyScreen({super.key});
 
   @override
@@ -54,13 +57,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
           SwitchListTile.adaptive(
             value: _notifications,
             onChanged: _onNotificationsChanged,
-            activeColor: Colors.black,
             title: const Text("Private profile"),
             secondary: const Padding(
               padding: EdgeInsets.only(left: 10),
               child: FaIcon(
                 FontAwesomeIcons.lock,
-                color: Colors.black,
               ),
             ),
           ),
@@ -72,19 +73,17 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Mentions"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   "Everyone",
-                  style: TextStyle(color: Colors.black45),
                 ),
                 Gaps.h10,
-                FaIcon(FontAwesomeIcons.chevronRight,
-                    size: Sizes.size16, color: Colors.black45),
+                FaIcon(
+                  FontAwesomeIcons.chevronRight,
+                ),
               ],
             ),
           ),
@@ -96,11 +95,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Muted"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
-            trailing: FaIcon(FontAwesomeIcons.chevronRight,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.chevronRight,
+            ),
           ),
           const ListTile(
             leading: Padding(
@@ -110,11 +108,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Hidden Words"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
-            trailing: FaIcon(FontAwesomeIcons.chevronRight,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.chevronRight,
+            ),
           ),
           const ListTile(
             leading: Padding(
@@ -124,11 +121,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Profiles you follow"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
-            trailing: FaIcon(FontAwesomeIcons.chevronRight,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.chevronRight,
+            ),
           ),
           const Divider(
             height: 10,
@@ -137,13 +133,12 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             title: Text("Other privacy settings"),
             subtitle: Text(
               "Some settings, like restrict, apply to both Threads and Instagram and can be managed on Instagram.",
-              style: TextStyle(color: Colors.black54),
             ),
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
             isThreeLine: true,
-            trailing: FaIcon(FontAwesomeIcons.arrowUpRightFromSquare,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.arrowUpRightFromSquare,
+            ),
           ),
           const ListTile(
             leading: Padding(
@@ -153,11 +148,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Blocked profiles"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
-            trailing: FaIcon(FontAwesomeIcons.arrowUpRightFromSquare,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.arrowUpRightFromSquare,
+            ),
           ),
           const ListTile(
             leading: Padding(
@@ -167,11 +161,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
               ),
             ),
             title: Text("Hide likes"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
-            trailing: FaIcon(FontAwesomeIcons.arrowUpRightFromSquare,
-                size: Sizes.size16, color: Colors.black45),
+            trailing: FaIcon(
+              FontAwesomeIcons.arrowUpRightFromSquare,
+            ),
           ),
         ],
       ),

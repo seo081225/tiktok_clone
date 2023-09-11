@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktok_clone_2023/constants/gaps.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/threads/privacy_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
+  static const routeURL = "setting";
+  static const routeName = "setting";
+
   const SettingsScreen({super.key});
 
   @override
@@ -13,6 +17,10 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  void _onTap() {
+    context.pushNamed(PrivacyScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +59,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: Text("Follow and invite friends"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           const ListTile(
@@ -63,16 +69,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: Text("Notifications"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           ListTile(
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const PrivacyScreen(),
-              ),
-            ),
+            onTap: _onTap,
             leading: const Padding(
               padding: EdgeInsets.only(left: 10),
               child: FaIcon(
@@ -80,8 +80,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: const Text("Privacy"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           const ListTile(
@@ -92,8 +90,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: Text("Account"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           const ListTile(
@@ -104,8 +100,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: Text("Help"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           const ListTile(
@@ -116,8 +110,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             title: Text("About"),
-            iconColor: Colors.black,
-            textColor: Colors.black,
             titleAlignment: ListTileTitleAlignment.center,
           ),
           const Divider(

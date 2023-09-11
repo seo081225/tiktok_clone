@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/threads/main_navigation_screen.dart';
+import 'package:tiktok_clone_2023/threads/router.dart';
 
 void main() {
   runApp(const TikTokApp());
@@ -11,7 +12,8 @@ class TikTokApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       title: 'Flutter 20230829',
       theme: ThemeData(
         useMaterial3: true,
@@ -77,7 +79,6 @@ class TikTokApp extends StatelessWidget {
         ),
         primaryColor: Colors.black,
       ),
-      home: const MainNavigationScreen(),
     );
   }
 }
