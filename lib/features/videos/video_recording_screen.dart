@@ -11,6 +11,8 @@ import 'package:tiktok_clone_2023/constants/sizes.dart';
 import 'package:tiktok_clone_2023/features/videos/video_preview_screen.dart';
 
 class VideoRecordingScreen extends StatefulWidget {
+  static const String routeName = "postVideo";
+  static const String routeURL = "/upload";
   const VideoRecordingScreen({super.key});
 
   @override
@@ -44,7 +46,11 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
 
   late FlashMode _flashMode;
 
-  late CameraController _cameraController;
+  late CameraController _cameraController = CameraController(
+    ResolutionPreset.ultraHigh as CameraDescription,
+    ResolutionPreset.ultraHigh,
+    enableAudio: false,
+  );
 
   @override
   void initState() {
@@ -321,5 +327,12 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
               ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<CameraController>(
+        '_cameraController', _cameraController));
   }
 }

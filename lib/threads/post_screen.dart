@@ -31,12 +31,12 @@ class _PostScreenState extends State<PostScreen> {
   }
 
   void _onNextTap() {
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(
-        builder: (context) => const VideoRecordingScreen(),
-      ),
-      (route) => false,
-    );
+    // Navigator.of(context).pushAndRemoveUntil(
+    //   MaterialPageRoute(
+    //     builder: (context) => const VideoRecordingScreen(),
+    //   ),
+    //   (route) => false,
+    // );
   }
 
   @override
