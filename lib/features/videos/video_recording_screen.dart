@@ -82,10 +82,12 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (!_hasPermission) return;
-    if (!_cameraController.value.isInitialized) return;
-    if (state == AppLifecycleState.inactive) {
+    if (!_noCamera) {
+      if (!_cameraController.value.isInitialized) return;
+    }
+    if (!_noCamera && state == AppLifecycleState.inactive) {
       _cameraController.dispose();
-    } else if (state == AppLifecycleState.resumed) {
+    } else if (!_noCamera && state == AppLifecycleState.resumed) {
       initCamera();
     }
   }
