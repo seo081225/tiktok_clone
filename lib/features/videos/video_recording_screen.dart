@@ -46,11 +46,7 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
 
   late FlashMode _flashMode;
 
-  late CameraController _cameraController = CameraController(
-    ResolutionPreset.ultraHigh as CameraDescription,
-    ResolutionPreset.ultraHigh,
-    enableAudio: false,
-  );
+  late CameraController _cameraController;
 
   @override
   void initState() {
