@@ -45,7 +45,6 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
   );
 
   late FlashMode _flashMode;
-
   late CameraController _cameraController;
 
   @override
@@ -81,19 +80,17 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (_noCamera) return;
     if (!_hasPermission) return;
-    if (!_noCamera) {
-      if (!_cameraController.value.isInitialized) return;
-    }
-    if (!_noCamera && state == AppLifecycleState.inactive) {
+    if (!_cameraController.value.isInitialized) return;
+    if (state == AppLifecycleState.inactive) {
       _cameraController.dispose();
-    } else if (!_noCamera && state == AppLifecycleState.resumed) {
+    } else if (state == AppLifecycleState.resumed) {
       initCamera();
     }
   }
 
   Future<void> initCamera() async {
-    if (_noCamera) return;
     final cameras = await availableCameras();
 
     if (cameras.isEmpty) {
@@ -335,12 +332,5 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
               ),
       ),
     );
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<CameraController>(
-        '_cameraController', _cameraController));
   }
 }
