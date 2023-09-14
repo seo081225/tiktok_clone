@@ -35,7 +35,7 @@ class _VideoPostState extends State<VideoPost>
   late final AnimationController _animationController;
 
   bool _isPaused = false;
-  final bool _isMuted = false;
+  late bool _isMuted = context.read<PlaybackConfigViewModel>().muted;
 
   void _onVideoChange() {
     if (_videoPlayerController.value.isInitialized) {
@@ -54,6 +54,7 @@ class _VideoPostState extends State<VideoPost>
     if (kIsWeb) {
       await _videoPlayerController.setVolume(0);
     }
+    _videoPlayerController.setVolume(_isMuted ? 0 : 1);
     _videoPlayerController.addListener(_onVideoChange);
     setState(() {});
   }
@@ -85,12 +86,9 @@ class _VideoPostState extends State<VideoPost>
 
   void _onPlaybackConfigChanged() {
     if (!mounted) return;
-    final muted = context.read<PlaybackConfigViewModel>().muted;
-    if (muted) {
-      _videoPlayerController.setVolume(0);
-    } else {
-      _videoPlayerController.setVolume(1);
-    }
+    _isMuted = context.read<PlaybackConfigViewModel>().muted;
+    setState(() {});
+    _videoPlayerController.setVolume(_isMuted ? 0 : 1);
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
@@ -107,6 +105,13 @@ class _VideoPostState extends State<VideoPost>
     if (_videoPlayerController.value.isPlaying && info.visibleFraction == 0) {
       _onTogglePause();
     }
+  }
+
+  void _onToggleMute() {
+    if (!mounted) return;
+    _isMuted = !_isMuted;
+    _videoPlayerController.setVolume(_isMuted ? 0 : 1);
+    setState(() {});
   }
 
   void _onTogglePause() {
@@ -183,16 +188,12 @@ class _VideoPostState extends State<VideoPost>
             top: 40,
             child: IconButton(
               icon: FaIcon(
-                context.watch<PlaybackConfigViewModel>().muted
+                _isMuted
                     ? FontAwesomeIcons.volumeOff
                     : FontAwesomeIcons.volumeHigh,
                 color: Colors.white,
               ),
-              onPressed: () {
-                context
-                    .read<PlaybackConfigViewModel>()
-                    .setMuted(!context.read<PlaybackConfigViewModel>().muted);
-              },
+              onPressed: _onToggleMute,
             ),
           ),
           const Positioned(
