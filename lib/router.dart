@@ -1,13 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tiktok_clone_2023/features/authentication/login_screen.dart';
-import 'package:tiktok_clone_2023/features/authentication/sign_up_screen.dart';
-import 'package:tiktok_clone_2023/features/common/widgets/main_navigation_screen.dart';
-import 'package:tiktok_clone_2023/features/inbox/activity_screen.dart';
-import 'package:tiktok_clone_2023/features/inbox/chat_detail_screen.dart';
-import 'package:tiktok_clone_2023/features/inbox/chats_screen.dart';
-import 'package:tiktok_clone_2023/features/onboarding/interests_screen.dart';
-import 'package:tiktok_clone_2023/features/videos/views/video_recording_screen.dart';
+import 'package:tiktok_clone/features/authentication/login_screen.dart';
+import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
+import 'package:tiktok_clone/features/common/widgets/main_navigation_screen.dart';
+import 'package:tiktok_clone/features/inbox/activity_screen.dart';
+import 'package:tiktok_clone/features/inbox/chat_detail_screen.dart';
+import 'package:tiktok_clone/features/inbox/chats_screen.dart';
+import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
+import 'package:tiktok_clone/features/videos/views/video_recording_screen.dart';
 
 final router = GoRouter(
   initialLocation: "/inbox",

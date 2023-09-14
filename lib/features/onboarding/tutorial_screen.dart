@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tiktok_clone_2023/constants/gaps.dart';
-import 'package:tiktok_clone_2023/constants/sizes.dart';
-import 'package:tiktok_clone_2023/features/common/widgets/main_navigation_screen.dart';
-import 'package:tiktok_clone_2023/utils.dart';
+import 'package:tiktok_clone/constants/gaps.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/common/widgets/main_navigation_screen.dart';
+import 'package:tiktok_clone/utils.dart';
 
 enum Direction { right, left }
 

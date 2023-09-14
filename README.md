@@ -1,4 +1,4 @@
-# tiktok_clone_2023
+# tiktok_clone
 
 A new Flutter project.
 
