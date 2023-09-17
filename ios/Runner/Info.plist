@@ -28,10 +28,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>REVERSED_CLIENT_ID</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.926670981604-tquq1e69sj39r3jsvbm7r4lqrk5d0ia1</string>
+				<string>app-1-625472218497-ios-255e76be89da8cd34bf480</string>
 			</array>
 		</dict>
 	</array>
