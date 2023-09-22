@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:tiktok_clone/features/authentication/views/login_screen.dart';
 import 'package:tiktok_clone/features/authentication/repos/authentication_repo.dart';
 import 'package:tiktok_clone/features/authentication/views/sign_up_screen.dart';
-import 'package:tiktok_clone/features/common/widgets/main_navigation_screen.dart';
+import 'package:tiktok_clone/features/common/widgets/main_navigation/main_navigation_screen.dart';
 import 'package:tiktok_clone/features/inbox/views/activity_screen.dart';
 import 'package:tiktok_clone/features/inbox/views/chat_detail_screen.dart';
 import 'package:tiktok_clone/features/inbox/views/chats_screen.dart';
